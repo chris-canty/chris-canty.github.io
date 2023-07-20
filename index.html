@@ -7,10 +7,70 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Hi Mia!</h1>
-    <p>
-        do you like the green background?
-    </p>    
-    <img src="assets/Images/IMG_2015.jpg" alt="Chia">
+    <div class="content">
+        <h1>Hi Mia!</h1>
+        <p>Do you like the green background?</p>
+        <div class="image-container">
+            <img src="assets/Images/IMG_2015.jpg" alt="Chia">
+        </div>
+    </div>
+
+    <div class="begin-game-container">
+        <button id="beginGame" class="button" onclick="startGame()">Begin Game</button>
+    </div>
+    
+    <button id="redButton" class="button" onclick="moveButton()" style="display: none;">Click Me!</button>
+    <p>Score: <span id="score">0</span></p>
+    <p>Time Left: <span id="timer">10</span></p>
+
+    <script>
+        let score = 0;
+        let timeLeft = 10;
+        let timerInterval;
+        let gameStarted = false;
+
+        function moveButton() {
+            if (gameStarted) {
+                const button = document.getElementById("redButton");
+                const maxX = window.innerWidth - button.clientWidth;
+                const maxY = window.innerHeight - button.clientHeight;
+
+                const x = Math.floor(Math.random() * maxX);
+                const y = Math.floor(Math.random() * maxY);
+
+                button.style.left = x + "px";
+                button.style.top = y + "px";
+
+                // Increase the score
+                score++;
+                document.getElementById("score").textContent = score;
+            }
+        }
+
+        function startTimer() {
+            timerInterval = setInterval(updateTimer, 1000);
+        }
+
+        function updateTimer() {
+            if (timeLeft > 0) {
+                timeLeft--;
+                document.getElementById("timer").textContent = timeLeft + " seconds";
+            } else {
+                clearInterval(timerInterval);
+                timeLeft = 10;
+                document.getElementById("timer").textContent = timeLeft + " seconds";
+                gameStarted = false;
+                document.getElementById("redButton").style.display = "none"; // Hide the button
+                document.querySelector(".begin-game-container").style.display = "block"; // Show "Begin Game" button
+            }
+        }
+
+        function startGame() {
+            gameStarted = true;
+            document.getElementById("redButton").style.display = "block"; // Show the button
+            document.querySelector(".begin-game-container").style.display = "none"; // Hide "Begin Game" button
+            startTimer();
+        }
+    </script>
 </body>
 </html>

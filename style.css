@@ -1,25 +1,62 @@
-body{
+body {
     margin: 0;
     padding: 0;
     text-align: center;
-}
-
-body{
     background-color: #000;
     color: #fff;
     height: 100vh;
-background: linear-gradient(green, #132201);
+    background: linear-gradient(green, #132201);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 100px); /* Adjust the height for button space */
+}
+
+.button {
+    background-color: red; /* Set the button background to red */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: absolute; /* Set the button position to absolute */
 }
 
 h1 {
-    padding-top: 4em;
+    padding-top: 2em;
 }
 
-p{
-    margin: 2em 0;
+p {
+    margin: 1em 0;
+}
+
+.image-container {
+    margin-top: 2em;
 }
 
 img {
     width: 40em;
     max-width: 90%;
+    display: block;
+    margin: 0 auto; /* Center the image horizontally */
+}
+
+.begin-game-container {
+    position: absolute;
+    top: 50px; /* Adjust the distance from the top */
+    left: calc(50% - 50px); /* Adjust the distance from the left (50% - 50px) */
+    transform: translateX(-50%);
+}
+
+#redButton {
+    top: 50%; /* Center the red button vertically */
+    left: 50%; /* Center the red button horizontally */
 }
