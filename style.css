@@ -1,8 +1,14 @@
 body{
-    margin: o;
+    margin: 0;
     padding: 0;
     text-align: center;
+}
 
+body{
+    background-color: #000;
+    color: #fff;
+    height: 100vh;
+background: linear-gradient(green, #132201);
 }
 
 h1 {
