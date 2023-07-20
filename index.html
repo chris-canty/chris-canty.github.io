@@ -19,9 +19,9 @@
         <button id="beginGame" class="button" onclick="startGame()">Begin Game</button>
     </div>
     
-    <button id="redButton" class="button" onclick="moveButton()" style="display: none;">Click Me!</button>
+    <button id="redButton" class="button" style="display: none;">Click Me!</button>
     <p>Score: <span id="score">0</span></p>
-    <p>Time Left: <span id="timer">10</span></p>
+    <p>Time Left: <span id="timer">10</span> seconds</p>
 
     <script>
         let score = 0;
@@ -68,9 +68,13 @@
         function startGame() {
             gameStarted = true;
             document.getElementById("redButton").style.display = "block"; // Show the button
-            document.querySelector(".begin-game-container").style.display = "none"; // Hide "Begin Game" button
+            document.getElementById("beginGame").style.display = "none"; // Hide "Begin Game" button
             startTimer();
         }
+
+        // For mobile devices, use touch events
+        const redButton = document.getElementById("redButton");
+        redButton.addEventListener("touchstart", moveButton);
     </script>
 </body>
 </html>
