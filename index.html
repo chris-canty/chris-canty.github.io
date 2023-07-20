@@ -21,7 +21,7 @@
     
     <button id="redButton" class="button" style="display: none;">Click Me!</button>
     <p>Score: <span id="score">0</span></p>
-    <p>Time Left: <span id="timer">10</span></p>
+    <p>Time Left: <span id="timer">10</span> </p>
 
     <script>
         let score = 0;
@@ -74,7 +74,7 @@
 
         // For mobile devices, use touch events
         const redButton = document.getElementById("redButton");
-        redButton.addEventListener("touchstart", moveButton);
+        redButton.addEventListener("click", moveButton);
 
         // Show "Begin Game" button when the timer concludes
         function showBeginButton() {
